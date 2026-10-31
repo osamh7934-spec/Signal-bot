@@ -1,4 +1,4 @@
-‎"""يشتغل مرة وحدة كل استدعاء (لـ GitHub Actions) ويحفظ حالته في state.json"""
+
 import os
 import json
 import datetime as dt
