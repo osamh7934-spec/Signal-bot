@@ -12,7 +12,7 @@ WATCHLIST = ["TSLA", "MSFT", "AAPL", "NVDA", "AMZN", "META"]
 TZ = zoneinfo.ZoneInfo("Asia/Riyadh")
 STATE_FILE = "state.json"
 
-‎# (بداية، نهاية، حد الكول، حد البوت) بتوقيت الرياض
+
 WINDOWS = [
     ((3, 0), (8, 0), 25, 25),
     ((8, 0), (12, 0), 15, 15),
