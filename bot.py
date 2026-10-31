@@ -1,4 +1,3 @@
-
 import os
 import json
 import datetime as dt
@@ -11,7 +10,6 @@ CHAT_ID = os.environ["CHAT_ID"]
 WATCHLIST = ["TSLA", "MSFT", "AAPL", "NVDA", "AMZN", "META"]
 TZ = zoneinfo.ZoneInfo("Asia/Riyadh")
 STATE_FILE = "state.json"
-
 
 WINDOWS = [
     ((3, 0), (8, 0), 25, 25),
@@ -94,20 +92,20 @@ def send(text):
 
 def build_message(sym, side, price, entry, t1, t2, stop, contract):
     exp, strike, premium = contract
-    arrow = "🟢 كول (Call) ▲" if side == "call" else "🔴 بوت (Put) ▼"
-    status = "تم الاختراق" if side == "call" else "تم الكسر"
+    arrow = "\U0001f7e2 \u0643\u0648\u0644 (Call) \u25b2" if side == "call" else "\U0001f534 \u0628\u0648\u062a (Put) \u25bc"
+    status = "\u062a\u0645 \u0627\u0644\u0627\u062e\u062a\u0631\u0627\u0642" if side == "call" else "\u062a\u0645 \u0627\u0644\u0643\u0633\u0631"
     return (
-        f"{arrow} — {sym}\n"
-        f"السعر الحالي للسهم: {price:.2f}$\n"
-        f"السترايك: {strike:g}$\n"
-        f"تاريخ الانتهاء: {exp}\n"
-        f"سعر العقد: {premium:.2f}$\n"
-        f"تكلفة العقد: {premium * 100:.0f}$\n"
-        f"الدخول: {entry:.2f}$\n"
-        f"الهدف: {t1:.2f}$ – {t2:.2f}$\n"
-        f"وقف الخسارة: {stop:.2f}$\n"
-        f"حالة الإشارة: {status}\n"
-‎        "⚠️ ليست توصية نهائية، التزم بإدارة رأس المال ووقف الخسارة."
+        f"{arrow} \u2014 {sym}\n"
+        f"\u0627\u0644\u0633\u0639\u0631 \u0627\u0644\u062d\u0627\u0644\u064a \u0644\u0644\u0633\u0647\u0645: {price:.2f}$\n"
+        f"\u0627\u0644\u0633\u062a\u0631\u0627\u064a\u0643: {strike:g}$\n"
+        f"\u062a\u0627\u0631\u064a\u062e \u0627\u0644\u0627\u0646\u062a\u0647\u0627\u0621: {exp}\n"
+        f"\u0633\u0639\u0631 \u0627\u0644\u0639\u0642\u062f: {premium:.2f}$\n"
+        f"\u062a\u0643\u0644\u0641\u0629 \u0627\u0644\u0639\u0642\u062f: {premium * 100:.0f}$\n"
+        f"\u0627\u0644\u062f\u062e\u0648\u0644: {entry:.2f}$\n"
+        f"\u0627\u0644\u0647\u062f\u0641: {t1:.2f}$ \u2013 {t2:.2f}$\n"
+        f"\u0648\u0642\u0641 \u0627\u0644\u062e\u0633\u0627\u0631\u0629: {stop:.2f}$\n"
+        f"\u062d\u0627\u0644\u0629 \u0627\u0644\u0625\u0634\u0627\u0631\u0629: {status}\n"
+        "\u26a0\ufe0f \u0644\u064a\u0633\u062a \u062a\u0648\u0635\u064a\u0629 \u0646\u0647\u0627\u0626\u064a\u0629\u060c \u0627\u0644\u062a\u0632\u0645 \u0628\u0625\u062f\u0627\u0631\u0629 \u0631\u0623\u0633 \u0627\u0644\u0645\u0627\u0644 \u0648\u0648\u0642\u0641 \u0627\u0644\u062e\u0633\u0627\u0631\u0629."
     )
 
 
@@ -133,7 +131,7 @@ def main():
                 st["seen"].append(key)
                 used[side] += 1
             except Exception as err:
-                print(sym, "خطأ:", err)
+                print(sym, "\u062e\u0637\u0623:", err)
     save_state(st)
 
 
