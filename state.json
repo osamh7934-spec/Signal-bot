@@ -1,1 +1,1 @@
-{"date": "2026-11-20", "counts": {"0": {"call": 1, "put": 1}, "1": {"call": 0, "put": 0}, "2": {"call": 1, "put": 0}}, "seen": ["MSFT|put", "AAPL|call", "META|call"]}
+{"date": "2026-11-20", "counts": {"0": {"call": 1, "put": 1}, "1": {"call": 0, "put": 0}, "2": {"call": 1, "put": 0}, "3": {"call": 0, "put": 0}}, "seen": ["MSFT|put", "AAPL|call", "META|call"]}
